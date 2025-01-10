@@ -62,7 +62,7 @@ export async function createInvoice(prevState: State, formData: FormData){
    INSERT INTO invoices ( customer_id, amount, status, date)
    VALUES (${customerId},${amountInCents}, ${status}, ${date})`
     } catch(error){
-    
+    console.log(error)
    }
    revalidatePath('/dashboard/invoices');
    redirect('/dashboard/invoices');
@@ -92,7 +92,7 @@ export async function updateInvoice(id: string, prevState: State, formData: Form
     WHERE id = ${id} `
     ;
     }catch (error){
-        
+        console.log(error)
     }
     
 
@@ -107,7 +107,7 @@ export async function deleteInvoice(id: string){
         revalidatePath('/dashboard/invoices');
         
     }catch(error){
-        
+        console.log(error)
     }
 
 }
